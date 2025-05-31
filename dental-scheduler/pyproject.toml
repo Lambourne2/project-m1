@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "dental-scheduler"
+version = "0.1.0"
+description = "AI-powered dental appointment scheduling agent"
+authors = ["Your Name <your.email@example.com>"]
+packages = [{include = "app"}]  # This line is important
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.95.0"
+uvicorn = {extras = ["standard"], version = "^0.21.1"}
+pydantic = "==1.10.7"  # Pin to this specific version   
+httpx = "^0.24.0"
+twilio = "^8.1.0"
+google-api-python-client = "^2.86.0"
+google-auth-oauthlib = "^1.0.0"
+redis = "^4.5.4"
+python-multipart = "^0.0.6"
+aioredis = "^2.0.1"
+tenacity = "^8.2.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.1"
+pytest-asyncio = "^0.21.0"
+black = "^23.3.0"
+isort = "^5.12.0"
+mypy = "^1.2.0"
+flake8 = "^6.0.0"
+pytest-cov = "^4.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ["py39"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
